@@ -17,4 +17,4 @@ maxElems a b c
   | otherwise = c
   
 miXOR :: Bool -> Bool -> Bool
-miXOR p q = if (p && not q) || (not p && q) then True else False
+miXOR p q = (p && not q) || (not p && q)
