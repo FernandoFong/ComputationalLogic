@@ -1,0 +1,68 @@
+module Practica1 where
+
+
+deriva :: Int -> Int -> Int -> Int -> Int
+deriva a b c v =  (2*a*v)+b
+
+
+areaCilindro :: Float -> Float -> Float
+areaCilindro d h =
+  let r = d / 2 in
+    2*pi*r*(r+h)
+
+volumenCilindro :: Float -> Float -> Float
+volumenCilindro d h =
+  let r = d / 2 in
+    pi*(r**2)*h
+
+aplicaOperacion :: Char -> Int -> Int -> Int
+aplicaOperacion op l r
+  | op == 's' = l
+  | op == 't' = r
+  | op == 'a' = l + r
+  | op == 'r' = l - r
+  | op == 'p' = l * r
+  | op == 'd' = div l r
+  | op == 'e' = l ^ r
+  | otherwise = 0
+  
+raizEntera :: Int -> Int
+raizEntera n = if n <= 3 then 1 else auxRaizEntera 2 n
+
+auxRaizEntera :: Int -> Int -> Int
+auxRaizEntera a n =
+  let s = a * a in
+    if s == n then a else if s > n then a - 1 else auxRaizEntera (a+1) n
+
+sumaNat :: Int -> Int
+sumaNat n = div (n*(n+1)) 2
+
+longitud :: Int -> Int
+longitud n = auxLong 10 n
+
+auxLong :: Int -> Int -> Int
+auxLong b n = if n < b then 1 else 1 + auxLong (b*10) n
+
+tribonaccies :: Int -> [Int]
+tribonaccies n = error "Función no implementada"
+
+elimDup :: [a] -> [a]
+elimDup ls = error "Función no implementada"
+
+maximal :: (a -> a -> a) -> [a] -> a
+maximal f l = error "Función no implementada"
+
+reversa :: [a] -> [a]
+reversa ls = error "Función no implementada"
+
+filtra :: (a -> Bool) -> [a] -> [a]
+filtra p l = error "Función no implementada"
+
+unicaVez :: [a] -> [a]
+unicaVez l = error "Función no implementada"
+
+apariciones :: [a] -> [(Int, a)]
+apariciones ls = error "Función no implementada"
+
+empareja :: [a] -> [(a,a)]
+empareja ls = error "Función no implementada"
