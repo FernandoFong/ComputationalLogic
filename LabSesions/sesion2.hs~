@@ -1,0 +1,8 @@
+module Sesion2 where
+
+bunnyEars2 :: Int -> Int
+bunnyEars2 0 = 0
+bunnyEars2 1 = 2
+bunnyEars2 n
+  |n % 2 == 0 = 3 + bunnyEars2 (n-1)
+  |otherwise = 2 + bunnyEars2 (n-1)
