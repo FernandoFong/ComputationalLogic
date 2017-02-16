@@ -1,0 +1,4 @@
+module Naturales where
+
+data Nat = Cero
+         | S Nat

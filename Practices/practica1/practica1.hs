@@ -5,21 +5,20 @@ module Practica1 where
 -- valor de b, el tercero al valor de c y el cuarto al valor de v que es el 
 -- valor de evaluación.
 deriva :: Int -> Int -> Int -> Int -> Int
-deriva a b c v =  (2*a*v)+b
+deriva a b c v =  (2*a*v) + b
 
 -- Función para calcular el área de un cilindro dada la altura y el diámetro
 -- como primer y segundo parámetro respectivamente.
 areaCilindro :: Float -> Float -> Float
-areaCilindro d h =
-  let r = d / 2 in
-    2*pi*r*(r+h)
+areaCilindro d h = 2*pi*r*(r + h)
+  where r = d / 2
 
 -- Función para calcular el volumen de un cilindro dada la altura y el diámetro
 -- como primer y segundo parámetro respectivamente.
 volumenCilindro :: Float -> Float -> Float
 volumenCilindro d h =
   let r = d / 2 in
-    pi*(r**2)*h
+    pi*r**2*h
 
 -- Función que recibe tres parámetros, el primero indica la operación que se va
 -- a realizar con los otros dos parámetros, las posibles operaciones son:
@@ -32,7 +31,7 @@ volumenCilindro d h =
 -- 'd' = división entera
 -- 'e' = potencia (el segundo parámetro elevado al tercero)
 aplicaOperacion :: Char -> Int -> Int -> Int
-aplicaOperacion op l r
+aplicaOperacion op l r 
   | op == 's' = l
   | op == 't' = r
   | op == 'a' = l + r
@@ -40,25 +39,25 @@ aplicaOperacion op l r
   | op == 'p' = l * r
   | op == 'd' = div l r
   | op == 'e' = l ^ r
-  | otherwise = 0
 
 -- Función recursiva que calcula una aproximación con un número entero a la raíz
 -- cuadrada.
 raizEntera :: Int -> Int
-raizEntera n = if n <= 3 then 1 else auxRaizEntera 2 n
+raizEntera n = if n <= 3 then 1 else auxRaiz 2 n
 
-auxRaizEntera :: Int -> Int -> Int
-auxRaizEntera a n =
-  let s = a * a in
-    if s == n then a else if s > n then a - 1 else auxRaizEntera (a+1) n
-
+auxRaiz :: Int -> Int -> Int
+auxRaiz b n = if s == n then b else if s > n then b - 1
+                                    else auxRaiz (b+1) n
+  where s = b * b
+  
 -- Función recursiva que devuelve la suma de los primeros n números naturales.
 sumaNat :: Int -> Int
-sumaNat n = div (n*(n+1)) 2
+sumaNat 0 = 0
+sumaNat n = n + sumaNat (n - 1)
 
 -- Función recursiva que devuelve la longitud de un número entero.
 longitud :: Int -> Int
-longitud n = auxLong 10 n
+longitud n = if n >= 0 then auxLong 10 n else error "Solo positivos o 0"
 
 auxLong :: Int -> Int -> Int
 auxLong b n = if n < b then 1 else 1 + auxLong (b*10) n
@@ -66,44 +65,76 @@ auxLong b n = if n < b then 1 else 1 + auxLong (b*10) n
 -- Función que regresa una lista con los n primeros números de tribonacci 
 -- iniciando con 0, 0, 1.
 tribonaccies :: Int -> [Int]
-tribonaccies n = error "Función no implementada"
+tribonaccies n = map tribAux [0, 1.. (n-1)]
+
+tribAux :: Int -> Int
+tribAux 0 = 0
+tribAux 1 = 0
+tribAux 2 = 1
+tribAux n = tribAux (n-3) + tribAux (n-2) + tribAux (n-1)
 
 -- Función que dada una lista elimina los elementos duplicados adyacentes de una
 -- lista dejando únicamente una aparición de cada elemento. La implementación de
 -- esta función usa foldr.
-elimDup :: [a] -> [a]
-elimDup ls = error "Función no implementada"
+elimDup :: (Eq a) => [a] -> [a]
+elimDup ls = error "funcion no implementada"
 
 -- Función que dada una función de comparación y una lista como parámetros,
 -- devuelve el elemento maximal de la lista para esa función de comparación. La
 -- implementación de esta función usa foldl.
 maximal :: (a -> a -> a) -> [a] -> a
-maximal f l = error "Función no implementada"
+maximal f l = error "funcion no implementada"
 
 -- Función que regresa la reversa de una lista.
 reversa :: [a] -> [a]
-reversa ls = error "Función no implementada"
+reversa ls = auxRev ls
+
+auxRev :: [a] -> [a]
+auxRev [] = []
+auxRev (x : xs) = auxRev xs ++ [x]
 
 -- Función que devuelve una lista con los elementos que cumplen con el predicado
 -- recibido como parámetro
 filtra :: (a -> Bool) -> [a] -> [a]
-filtra p l = error "Función no implementada"
+filtra p l = auxFiltra p l
+
+auxFiltra :: (a -> Bool) -> [a] -> [a]
+auxFiltra p [] = []
+auxFiltra p [x] = if p x then [x] else []
+auxFiltra p (x : xs) = if p x then [x]++auxFiltra p xs
+                       else auxFiltra p xs
 
 -- Función que toma una lista como parámetro y regresa otra lista con los 
 -- elementos que aparecen una única vez en la original.
-unicaVez :: [a] -> [a]
-unicaVez l = error "Función no implementada"
+unicaVez :: (Eq a) => [a] -> [a]
+unicaVez ls = auxUnica ls
+
+auxUnica :: (Eq a) => [a] -> [a]
+auxUnica [] = []
+auxUnica [x] = [x]
+auxUnica (x : xs) = if (elem x xs) then auxUnica xs
+                    else [x]++auxUnica xs
 
 -- Función que recibe una lista y regresa una lista de pares (k, x), donde k es
 -- el número de apariciones consecutivas de x en la lista recibida.
-apariciones :: [a] -> [(Int, a)]
+apariciones :: (Eq a) => [a] -> [(Int, a)]
 apariciones ls = error "Función no implementada"
 
 -- Función que dada una lista de la forma [a0,a1,a2, ... , am,an,ao,ap] devuelve
 -- una lista de pares cuyos elementos son (a0,ap) (a1,ao) (a2 an). Se debe 
 -- asegurar que la lista recibida siemre sea de longitud par.
 empareja :: [a] -> [(a,a)]
-empareja ls = error "Función no implementada"
+empareja ls
+  | mod (length ls) 2 == 0 = auxEmp ls
+  | otherwise = error "Lista impar"
 
+auxEmp :: [a] -> [(a, a)]
+auxEmp [x, y] = [(x, y)]
+auxEmp ls = (head ls, last ls):auxEmp (tail (init ls))
 
 -- AGREGA AQUÍ LA DEFINICIÓN DE LAS LISTAS POR COMPRENSIÓN
+
+lista1 :: [Int]
+lista1 = [(2 ^ x) - 1 | x <- [0..6]]
+
+lista2 = [(x, (x+1)) | x <- [3, 6.. ]]

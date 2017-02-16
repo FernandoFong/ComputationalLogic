@@ -1,0 +1,4 @@
+module Lista where
+
+data Lista = Vacia
+           |Cons Int Lista
