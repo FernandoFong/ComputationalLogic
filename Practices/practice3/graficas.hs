@@ -32,28 +32,38 @@ type Grafica = [Adyacencia]
 -- Función que dada una gráfica regresa una lista con los vértices que la 
 -- conforman (Enteros).
 vertices :: Grafica -> [Vertice]
-vertices g = auxVer g
-
-auxVer :: Grafica -> [Vertice]
-auxVer [] = []
-auxVer (x:xs) = (fst x) : (auxVer xs)
+vertices [(u,v)] = [u]
+vertices ((u,v):xs) = u:(vertices xs)
 
 -- Función que dada una gráfica determina si es conexa o no.
 esConexa :: Grafica -> Bool
-esConexa g = error "Función no implementada"
+esConexa g = auxCon g (ady g)
+
+--Auxiliar que nos determina si es conexa o no.
+auxCon :: Grafica -> [Vertice] -> Bool
+auxCon [(u,v)] ls =(elem u ls)
+auxCon ((u,v):xs) ls = (elem u ls) && (auxCon xs ls)
 
 -- Función que dada una gráfica determina si es completa o no.
 esCompleta :: Grafica -> Bool
-esCompleta g = (numAristas g) == ((numVertices g)*((numVertices g) -1)) 
+esCompleta g = (length(ady g)) == ((length (vertices g))*(length(vertices g)-1))
 
 -- Fución que dada una gráfica determina si contiene un camino hamiltoniano.
-cicloHamiltoniano :: Grafica -> Bool
-cicloHamiltoniano g = error "función no implementada"
+caminoHamiltoniano :: Grafica -> Bool
+caminoHamiltoniano g = auxCam g
+
+auxCam :: Grafica -> Bool
+auxCam [(u,v),(x,w)] = (elem u w) || (elem x w)
+auxCam ((u,v):xs) = (elem u (ady xs)) && (auxCam xs)
 
 -- Función que dada una gráfica y un entero k, determina si contiene un clan de
 -- tamaño k.
-clan :: Grafica -> Int ->  Bool
-clan g k = error "Función no implementada"
+clan :: Grafica -> Int -> Bool
+clan g k = error "funcion no implementada"
+  
+ady :: Grafica -> [Vertice]
+ady [(u,v)] = v
+ady ((u,v):xs) = v++(ady xs)
 
 perteneceVertice :: Vertice -> Grafica -> Bool
 perteneceVertice v g = elem v (vertices g)

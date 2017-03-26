@@ -72,10 +72,13 @@ evalua ea env = auxEval ea env
 
 auxEval :: EA -> Env -> Int
 auxEval ea [] = error "No se encontró la variable en el ambiente"
-auxEval (Var a) [(b, n)] = if a == b then n else auxEval (Var a) []
-auxEval (Var a) (x:xs) = auxEval (Var a) [x] + auxEval (Var a) xs
-auxEval (Sum e1 e2) ls = auxEval e1 ls + auxEval e2 ls
-auxEval (Res e1 e2) ls = auxEval e1 ls - auxEval e2 ls
-auxEval (Mul e1 e2) ls = auxEval e1 ls * auxEval e2 ls
-auxEval (Div e1 e2) ls = div (auxEval e1 ls) (auxEval e2 ls)
-auxEval (Paren ea) ls = auxEval ea ls
+auxEval (Cte c) ls = toInt c
+auxEval (Var a) [(b, n)] = if a == b then n else error "falla"
+auxEval (Sum e1 e2) [(b, n)] = auxEval e1 [(b, n)] + auxEval e2 [(b,n)]
+auxEval (Res e1 e2) [(b, n)] = auxEval e1 [(b, n)] - auxEval e2 [(b,n)]
+auxEval (Mul e1 e2) [(b, n)] = auxEval e1 [(b, n)] * auxEval e2 [(b,n)]
+auxEval (Div e1 e2) [(b,n)]= auxEval e1 [(b,n)] 'div' auxEval e2 [(b,n)]
+auxEval (Paren ea) ls = evalp ea ls
+
+evalp :: EA -> Env -> Int
+evalp 
