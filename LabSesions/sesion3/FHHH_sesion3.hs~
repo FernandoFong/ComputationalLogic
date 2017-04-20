@@ -1,4 +1,0 @@
-module FHHH_sesion3 where
-
-data Nat = Cero
-         | S Cero

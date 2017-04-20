@@ -1,0 +1,6 @@
+padres(ximena,jesus,angelica)
+padres(ana,jesus,angelica)
+mujer(ana)
+mujer(ximena)
+
+hermana(x,y):-mujer(x),mujer(y),padres(x,m,p),padres(y,m,p)

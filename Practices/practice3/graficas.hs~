@@ -49,49 +49,14 @@ esCompleta :: Grafica -> Bool
 esCompleta g = (length(ady g)) == ((length (vertices g))*(length(vertices g)-1))
 
 -- Fución que dada una gráfica determina si contiene un camino hamiltoniano.
-caminoHamiltoniano :: Grafica -> Bool
-caminoHamiltoniano g = auxCam g
-
-auxCam :: Grafica -> Bool
-auxCam [(u,v),(x,w)] = (elem u w) || (elem x w)
-auxCam ((u,v):xs) = (elem u (ady xs)) && (auxCam xs)
+cicloHamiltoniano :: Grafica -> Bool
+cicloHamiltoniano g = error "Función no implementada"
 
 -- Función que dada una gráfica y un entero k, determina si contiene un clan de
 -- tamaño k.
 clan :: Grafica -> Int -> Bool
-clan g k = error "funcion no implementada"
-  
+clan g = error "Función no implementada"
+
 ady :: Grafica -> [Vertice]
 ady [(u,v)] = v
 ady ((u,v):xs) = v++(ady xs)
-
-perteneceVertice :: Vertice -> Grafica -> Bool
-perteneceVertice v g = elem v (vertices g)
-
-ingrado :: Grafica -> Vertice -> Int
-ingrado g v = if elem v (vertices g) then auxIn g v else error "No existe el vertice"
-
-auxIn :: Grafica -> Vertice -> Int
-auxIn [(u, v)] x = if (elem x v) then 1 else 0
-auxIn ((u, v):xs) x = if elem x v then 1 + auxIn xs x else auxIn xs x
-
-exgrado :: Grafica -> Vertice -> Int
-exgrado g v = if elem v (vertices g) then auxEx g v else error "No existe el vertice"
-
-auxEx :: Grafica -> Vertice -> Int
-auxEx ((u, v):xs) vi = if vi == u then length v else auxEx xs vi 
-
-vecinosSalientes ::  Grafica -> Vertice -> [Vertice]
-vecinosSalientes [(u, v)] x = if x == u then v else []
-vecinosSalientes ((u,v):xs) x = if x == u then v else vecinosSalientes xs x
-
-vecinosEntrantes :: Grafica -> Vertice -> [Vertice]
-vecinosEntrantes [(u, v)] x = if elem x v then [u] else []
-vecinosEntrantes ((u,v):xs) x = if elem x v then u:(vecinosEntrantes xs x) else (vecinosEntrantes xs x)
-
-numVertices :: Grafica -> Int
-numVertices g = length(vertices g)
-
-numAristas :: Grafica -> Int
-numAristas [(u, v)] = length v
-numAristas ((u, v):xs) = (length v) + (numAristas xs)

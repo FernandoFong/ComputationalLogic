@@ -1,0 +1,5 @@
+hermana(X,Y):- mujer(X),mujer(Y),padres(X,m,p),padres(Y,m,p).
+mujer(ana).
+mujer(ximena).
+padres(ximena,jesus,angelica).
+padres(ana,jesus,angelica).

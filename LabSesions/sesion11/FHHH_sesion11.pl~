@@ -1,0 +1,1 @@
+contiene(X, [H|T]) :- X = H ; contiene(X,T).
