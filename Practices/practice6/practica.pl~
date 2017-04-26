@@ -1,0 +1,2 @@
+ultimo([X], X).
+ultimo([H|T], X) :- ultimo(T, X).
