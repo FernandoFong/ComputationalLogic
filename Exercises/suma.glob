@@ -1,0 +1,184 @@
+DIGEST 32658055da6c6c7f03a5a3a8385c3de7
+Fsuma
+R15:17 Coq.Init.Nat <> <> lib
+prf 27:37 <> cero_neutro
+R55:57 Coq.Init.Logic <> :type_scope:x_'='_x not
+R51:53 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R50:50 suma <> n var
+R58:58 suma <> n var
+prf 183:192 <> distr_suma
+R220:222 Coq.Init.Logic <> :type_scope:x_'='_x not
+R209:209 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R215:218 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R211:213 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R210:210 suma <> n var
+R214:214 suma <> m var
+R219:219 suma <> l var
+R224:227 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R233:233 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R223:223 suma <> n var
+R229:231 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R228:228 suma <> m var
+R232:232 suma <> l var
+prf 345:352 <> suc_suma
+R376:378 Coq.Init.Logic <> :type_scope:x_'='_x not
+R367:367 Coq.Init.Datatypes <> S constr
+R371:373 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R370:370 suma <> n var
+R374:374 suma <> m var
+R380:382 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R379:379 suma <> n var
+R383:383 Coq.Init.Datatypes <> S constr
+R385:385 suma <> m var
+prf 490:498 <> conm_suma
+R518:520 Coq.Init.Logic <> :type_scope:x_'='_x not
+R514:516 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R513:513 suma <> n var
+R517:517 suma <> m var
+R522:524 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R521:521 suma <> m var
+R525:525 suma <> n var
+R579:589 suma <> cero_neutro thm
+R579:589 suma <> cero_neutro thm
+R579:589 suma <> cero_neutro thm
+R647:654 suma <> suc_suma thm
+R647:654 suma <> suc_suma thm
+R647:654 suma <> suc_suma thm
+def 685:689 <> prop1
+R719:722 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R724:727 Coq.Init.Logic <> :type_scope:x_'\/'_x not
+R723:723 suma <> B var
+R728:728 suma <> B var
+R714:717 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R713:713 suma <> A var
+R718:718 suma <> B var
+prf 739:742 <> hola
+R745:749 suma <> prop1 def
+R768:772 suma <> prop1 def
+ind 834:836 <> par
+constr 856:860 <> par_0
+constr 872:876 <> par_n
+R843:846 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R840:842 Coq.Init.Datatypes <> nat ind
+R864:866 suma <> par ind
+R895:898 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R899:901 suma <> par ind
+R903:903 Coq.Init.Datatypes <> S constr
+R906:906 Coq.Init.Datatypes <> S constr
+R908:908 suma <> n var
+R890:892 suma <> par ind
+R894:894 suma <> n var
+R923:925 suma <> par ind
+R940:942 suma <> par ind
+def 957:961 <> par_2
+R964:966 suma <> par ind
+R986:990 suma <> par_n constr
+R986:990 suma <> par_n constr
+R1001:1005 suma <> par_0 constr
+R1001:1005 suma <> par_0 constr
+prf 1022:1029 <> par_suma
+R1042:1044 suma <> par ind
+R1047:1049 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R1046:1046 suma <> x var
+R1050:1050 suma <> x var
+R1094:1098 suma <> par_0 constr
+R1094:1098 suma <> par_0 constr
+R1123:1130 suma <> suc_suma thm
+R1123:1130 suma <> suc_suma thm
+R1123:1130 suma <> suc_suma thm
+R1141:1145 suma <> par_n constr
+R1141:1145 suma <> par_n constr
+prf 1173:1182 <> suma_pares
+R1202:1205 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R1211:1214 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R1215:1217 suma <> par ind
+R1220:1222 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R1219:1219 suma <> n var
+R1223:1223 suma <> m var
+R1206:1208 suma <> par ind
+R1210:1210 suma <> m var
+R1197:1199 suma <> par ind
+R1201:1201 suma <> n var
+R1280:1284 suma <> par_0 constr
+R1280:1284 suma <> par_0 constr
+R1304:1308 suma <> par_n constr
+R1304:1308 suma <> par_n constr
+R1339:1343 suma <> par_n constr
+R1339:1343 suma <> par_n constr
+R1374:1378 suma <> par_n constr
+R1374:1378 suma <> par_n constr
+def 1407:1414 <> par_bool
+R1419:1421 Coq.Init.Datatypes <> nat ind
+R1426:1429 Coq.Init.Datatypes <> bool ind
+R1442:1442 suma <> n var
+R1458:1461 Coq.Init.Datatypes <> true constr
+R1467:1467 Coq.Init.Datatypes <> S constr
+R1481:1488 suma <> par_bool def
+R1490:1490 suma <> n var
+R1511:1514 Coq.Init.Datatypes <> true constr
+R1519:1523 Coq.Init.Datatypes <> false constr
+R1543:1546 Coq.Init.Datatypes <> true constr
+ind 1606:1607 <> le
+constr 1638:1641 <> le_n
+constr 1656:1659 <> le_S
+R1612:1614 Coq.Init.Datatypes <> nat ind
+R1622:1625 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R1619:1621 Coq.Init.Datatypes <> nat ind
+R1716:1717 suma <> le ind
+R1646:1649 suma <> :nat_scope:x_'<='_x not
+R1672:1674 Coq.Init.Datatypes <> nat ind
+R1683:1686 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R1688:1691 suma <> :nat_scope:x_'<='_x not
+R1692:1692 Coq.Init.Datatypes <> S constr
+R1694:1694 suma <> m var
+R1678:1681 suma <> :nat_scope:x_'<='_x not
+R1682:1682 suma <> m var
+R1716:1717 suma <> le ind
+not 1703:1703 <> :nat_scope:x_'<='_x
+ind 1748:1752 <> lista
+constr 1774:1778 <> empty
+constr 1791:1794 <> cons
+R1781:1785 suma <> lista ind
+R1798:1801 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R1809:1812 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R1813:1817 suma <> lista ind
+R1802:1806 suma <> lista ind
+def 1832:1837 <> suma_l
+R1843:1847 suma <> lista ind
+R1849:1851 Coq.Init.Datatypes <> nat ind
+R1856:1858 Coq.Init.Datatypes <> nat ind
+R1871:1871 suma <> l var
+R1881:1885 suma <> empty constr
+R1897:1900 suma <> cons constr
+R1912:1914 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R1915:1920 suma <> suma_l def
+R1922:1922 suma <> l var
+def 1941:1946 <> concat
+R1966:1970 suma <> lista ind
+R1972:1972 suma <> A var
+R1978:1982 suma <> lista ind
+R1984:1984 suma <> A var
+R1998:1999 suma <> l1 var
+R2009:2013 suma <> empty constr
+R2020:2021 suma <> l2 var
+R2026:2029 suma <> cons constr
+R2041:2044 suma <> cons constr
+R2051:2056 suma <> concat def
+R2063:2064 suma <> l2 var
+R2058:2058 suma <> A var
+R2046:2046 suma <> A var
+prf 2083:2087 <> chafa
+R2128:2130 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2104:2109 suma <> suma_l def
+R2111:2116 suma <> concat def
+R2125:2126 suma <> l2 var
+R2122:2123 suma <> l1 var
+R2118:2120 Coq.Init.Datatypes <> nat ind
+R2141:2143 Coq.Init.Nat <> :nat_scope:x_'+'_x not
+R2131:2136 suma <> suma_l def
+R2138:2139 suma <> l1 var
+R2144:2149 suma <> suma_l def
+R2151:2152 suma <> l2 var
+R2244:2253 suma <> distr_suma thm
+R2244:2253 suma <> distr_suma thm
+R2244:2253 suma <> distr_suma thm

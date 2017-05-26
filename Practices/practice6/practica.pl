@@ -40,3 +40,8 @@ acepta([H|T]) :- auxacepta([H|T], 1).
 /*Auxiliar para poder simular las transiciones del autómata.*/
 auxacepta([], X) :- final(X).
 auxacepta([H|T], X) :- delta(X, H, Y), auxacepta(T, Y).
+
+palindromo(A) :- palindromo(A, []).
+palindromo(A, A).
+palindromo([_|A], A).
+palindromo([C|A], D) :- palindromo(A, B), B=[C|D].
