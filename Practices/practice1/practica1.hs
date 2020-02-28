@@ -77,32 +77,19 @@ tribAux n = tribAux (n-3) + tribAux (n-2) + tribAux (n-1)
 -- lista dejando únicamente una aparición de cada elemento. La implementación de
 -- esta función usa foldr.
 elimDup :: (Eq a) => [a] -> [a]
-elimDup ls = error "funcion no implementada"
-
--- Función que dada una función de comparación y una lista como parámetros,
--- devuelve el elemento maximal de la lista para esa función de comparación. La
--- implementación de esta función usa foldl.
-maximal :: (a -> a -> a) -> [a] -> a
-maximal f l = error "funcion no implementada"
+elimDup [] = []
+elimDup (x:xs) = x:elimDup([y | y <- xs, y /= x])
 
 -- Función que regresa la reversa de una lista.
 reversa :: [a] -> [a]
-reversa ls = auxRev ls
-
-auxRev :: [a] -> [a]
-auxRev [] = []
-auxRev (x : xs) = auxRev xs ++ [x]
+reversa [] = []
+reversa (x:xs) = reversa(xs) ++ [x]
 
 -- Función que devuelve una lista con los elementos que cumplen con el predicado
 -- recibido como parámetro
 filtra :: (a -> Bool) -> [a] -> [a]
-filtra p l = auxFiltra p l
-
-auxFiltra :: (a -> Bool) -> [a] -> [a]
-auxFiltra p [] = []
-auxFiltra p [x] = if p x then [x] else []
-auxFiltra p (x : xs) = if p x then [x]++auxFiltra p xs
-                       else auxFiltra p xs
+filtra p [] = []
+filtra p (x:xs) = if (p x) then x:(filtra p xs) else filtra p xs
 
 -- Función que toma una lista como parámetro y regresa otra lista con los 
 -- elementos que aparecen una única vez en la original.
@@ -118,7 +105,13 @@ auxUnica (x : xs) = if (elem x xs) then auxUnica xs
 -- Función que recibe una lista y regresa una lista de pares (k, x), donde k es
 -- el número de apariciones consecutivas de x en la lista recibida.
 apariciones :: (Eq a) => [a] -> [(Int, a)]
-apariciones ls = error "Función no implementada"
+apariciones [] = []
+apariciones l@(x:xs) = let c = cuenta x l in
+                         (c, x):apariciones(elim x xs)
+                         where cuenta x [] = 0
+                               cuenta x (y:xs) = if x == y then 1 + cuenta x xs else cuenta x xs
+                               elim x [] = []
+                               elim x (y:ys) = if x == y then elim x ys else y:(elim x ys)
 
 -- Función que dada una lista de la forma [a0,a1,a2, ... , am,an,ao,ap] devuelve
 -- una lista de pares cuyos elementos son (a0,ap) (a1,ao) (a2 an). Se debe 
